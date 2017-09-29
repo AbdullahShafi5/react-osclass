@@ -2,30 +2,42 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 // COMPONENTS
+import { Layout, NavDrawer, Panel, Sidebar } from 'react-toolbox/lib/Layout';
+import UpperHeader     from '../components/UpperHeader';
 import Header     from '../components/Header';
-import SearchResults from '../components/search/SearchResults';
+import HomeSearchArea from '../components/search/HomeSearchArea';
+import FilterBox from '../components/search/FilterBox';
+import ResultsSection from '../components/ResultsSection';
 
 // ACTIONS
-import {search} from '../../actions/SearchActions';
+import { loadAdmin } from './../../../../actions/UserActions';
 
 
-class App extends Component {
+import './../styles/Style.scss';
 
-    componentDidMount() {
-        this.props.dispatch(search({sPattern: 'test'}));
+@connect( (store) => {
+    return {
+        user: store.user
+    };
+} )
+export default class App extends Component {
+
+    componentWillMount() {
+        if (!this.props.user.processing && !Object.keys(this.props.user.data).length) {
+            this.props.dispatch(loadAdmin());
+        }
     }
 
     render() {
         return (
-            <div className="react-native-web">
+            <Panel className='panel'>
                 <Header />
-                <SearchResults/>
-            </div>
+                <div className='container'>
+                    <HomeSearchArea/>
+                    <FilterBox />
+                    <ResultsSection />
+                </div>
+            </Panel>
         );
     }
 }
-
-const select = state => state;
-
-// Wrap the component to inject dispatch and state into it
-export default connect(select)(App);

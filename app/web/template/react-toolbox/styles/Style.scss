@@ -1,22 +1,150 @@
-// get the page ready
-* { outline: none; box-sizing: border-box; }
-body { padding: 0; margin: 0; }
-html, body, .react-native-web { height: 100%; width: 100%; position: absolute; top: 0; right: 0; overflow: hidden;}
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import './../../../../../node_modules/react-toolbox/lib/colors';
+@import './../../../../../node_modules/react-toolbox/lib/variables';
+@import './Defaults.scss';
+@import './Animations.scss';
+@import './Header.scss';
+@import './HomeSearchArea.scss';
+@import './FilterBox.scss';
+@import './ResultsSection.scss';
+
+@import './ResultsControlBar.scss';
+@import './real_state/CardResults.scss';
+
+
+
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--palette-brown-50);
+  font-family: var(--preferred-font) !important;
+}
+
+html, body, .react-native-web {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0; right: 0;
+  overflow: hidden;
+}
+
 body, button, input {
   font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   font-size: 1em;
 }
 
-// let the real CSS begin
-.react-native-web {
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
+.panel {
+  padding-top: 90px;
+  height: 100%;
+  .container {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
 
-  .hello-world {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 50%;
+[class*='flexboxgrid--container--'] {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-thin);
+}
+
+h3 {
+  font-size: var(--heading-size-h3);
+}
+
+h2 {
+  font-size: var(--heading-size-h2);
+}
+
+h1 {
+  font-size: var(--heading-size-h1);
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-side-margin {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.no-vertical-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.no-padding {
+  margin: 0;
+}
+
+.no-side-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-vertical-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.full-with {
+  width: 100%;
+}
+
+.flex-direction-row {
+  flex-direction: row;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.dumb-link {
+  cursor: pointer;
+  color: var(--color-primary);
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+.inline-nav {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  & > li {
+    display: inline-block;
+    a {
+      display: inline-block;
+      color: #333;
+      text-decoration: none;
+      padding: 12px;
+      min-width: 80px;
+      font-size: var(--font-size-small);
+    }
+  }
+}
+
+.list-card-grid {
+  .list-card-grid-row {
+    .list-card {
+      .list-card-grid-title {
+        height: 160px;
+        align-items: flex-start;
+      }
+    }
   }
 }

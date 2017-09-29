@@ -1,0 +1,75 @@
+.upper-header {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 300;
+  height: 40px;
+  width: var(--screen-xs-min);
+  background: var(--palette-indigo-500);
+  & > div, & > div > div {
+    height: 100%;
+  }
+  section {
+    color: var(--color-white);
+    font-size: var(--font-size-tiny);
+    address {
+      display: inline-block;
+      font-weight: 900;
+    }
+  }
+}
+
+.header {
+  height: 90px;
+  background: #fff;
+
+  .header-logo {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    svg {
+      fill: var(--palette-blue-400)
+    }
+  }
+
+  .phone-number {
+    text-align: center;
+    color: var(--color-text);
+    h3 {
+      margin: 0;
+      font-size: var(--font-size-huge);
+      i {
+        position: relative;
+        bottom: -4px;
+        color: var(--color-accent);
+        font-size: var(--font-size-huge);
+      }
+    }
+  }
+
+  .other-contacts {
+    text-align: right;
+    .mobile {
+      font-size: var(--font-size);
+      color: var(--palette-grey-600);
+      line-height: var(--font-size);
+    }
+    .email {
+      font-size: var(--font-size);
+      color: var(--palette-grey-600);
+      line-height: var(--font-size);
+    }
+    p {
+      margin: 0;
+      &:first-child {
+        margin-bottom: 4px;
+      }
+      i {
+        position: relative;
+        bottom: -3px;
+        color: var(--color-accent);
+        font-size: var(--font-size);
+      }
+    }
+  }
+}

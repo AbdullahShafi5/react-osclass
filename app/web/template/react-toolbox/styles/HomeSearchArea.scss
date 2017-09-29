@@ -1,0 +1,104 @@
+.home-search-area {
+  background-image: url('./../../../../../assets/theme/default/home-grid-area-bg-4.jpg');
+  background-size: cover;
+  background-position: 0 10%;
+  background-repeat: no-repeat;
+  will-change: transform;
+  animation: animatedBackgroundY 40s linear;
+  animation-direction: alternate;
+
+  .grid {
+    position: relative;
+  }
+
+  .grid-row {
+    height: 520px;
+    @media (--md-viewport) {
+      height: 580px;
+    }
+  }
+
+  .search-headline {
+    width: 80%;
+    margin: 0 0 25px 0;
+    color: var(--color-white);
+    font-size: 4em;
+    line-height: 1em;
+    text-align: left;
+    text-shadow:  -1px 1px 0 #999999,
+                  -2px 2px 0 #8a8a8a,
+                  -3px 3px 0 #7d7d7d,
+                  -4px 4px 1px rgba(0,0,0,.1),
+                  -4px 0 5px rgba(0,0,0,.1),
+                  -4px 1px 3px rgba(0,0,0,.3),
+                  -4px 3px 5px rgba(0,0,0,.2);
+    & > span {
+      color: var(--color-accent);
+      text-shadow: -1px 1px 0 #a60055,
+      -2px 2px 0 #860043,
+      -3px 3px 0 #6c0036,
+      -4px 4px 1px rgba(0,0,0,.1),
+      -4px 0 5px rgba(0,0,0,.1),
+      -4px 1px 3px rgba(0,0,0,.3),
+      -4px 3px 5px rgba(0,0,0,.2);;
+    }
+  }
+
+  .filter-container {
+    padding: 25px;
+    background: rgba(0, 0, 0, .3);
+    [data-react-toolbox='input'] {
+      background: #fff;
+      padding: 0;
+      & > input {
+        height: 36px;
+        padding-left: 15px;
+        line-height: 36px;
+      }
+      span:last-child {
+        top: 12px;
+        left: 12px;
+      }
+    }
+    .form-container {
+      & > div:not(:last-child) {
+        margin-bottom: 12px;
+        @media (--sm-viewport) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .search-container {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .action-container {
+    & > button {
+      width: 100%;
+    }
+  }
+
+  .realtor-image {
+    z-index: 100;
+    position: absolute;
+    height: 583px;
+    width: 713px;
+    background-image: url('./../../../../../assets/theme/default/realtor.png');
+    background-size: cover;
+    background-position: 0 10%;
+    background-repeat: no-repeat;
+
+    bottom: 0;
+    left: -150px;
+  }
+}
+
+
+
+
+
+
+

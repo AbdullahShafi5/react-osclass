@@ -1,8 +1,8 @@
 import React          from 'react';
 import { render }     from 'react-dom';
-import Root           from './template/react-toolbox/containers/Root';
 import configureStore from '../store/ConfigureStore';
 
+import Root from 'container/Root';
 
 const store = configureStore();
 const rootElement = document.getElementById('root');

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import HomeSearchBox from './../search/HomeSearchBox';
 
+// COMPONENTS
+import HomeSearchBox from './HomeSearchBox';
 
 export default class HomeSearchArea extends Component {
 

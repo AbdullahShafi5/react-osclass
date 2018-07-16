@@ -1,19 +1,18 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import NumberFormat from 'react-number-format'
 import AppBar from 'react-toolbox/lib/app_bar';
-import UpperHeader     from '../components/UpperHeader';
 import Dropdown from 'react-toolbox/lib/dropdown';
 import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/link';
 
+// COMPONENTS
+import UpperHeader from 'template/common/UpperHeader';
+
 import InlineSVG from "react-svg-inline"
-import SiteLogoSvg from "./../../../../../assets/svg/web-logo.svg"
-
-
-/* ACTIONS */
-import {getRegions} from './../../../../actions/LocationActions';
+import SiteLogoSvg from "asset/svg/web-logo.svg"
 
 
 @connect((store) => {
@@ -25,12 +24,7 @@ import {getRegions} from './../../../../actions/LocationActions';
 
 export default class Header extends Component {
 
-    componentDidMount() {
-        //this.props.dispatch(getRegions());
-    }
-
     render() {
-
         return (
             <AppBar className='header' fixed>
                 <Grid>
@@ -61,3 +55,8 @@ export default class Header extends Component {
         );
     }
 }
+
+Header.propTypes = {
+    user: PropTypes.optionalObject,
+    regions: PropTypes.optionalObject
+};

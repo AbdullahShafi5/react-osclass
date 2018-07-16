@@ -3,6 +3,9 @@ const webpack = require('webpack');
 const webpackNotifier = require('webpack-notifier');
 
 module.exports = {
+    devServer: {
+        historyApiFallback: true
+    },
     devtool: 'cheap-module-eval-source-map',
     entry: [
         'babel-polyfill',
@@ -17,8 +20,16 @@ module.exports = {
         extensions: [
             '.webpack.js',
             '.web.js',
-            '.js'
-        ]
+            '.js',
+            '.svg'
+        ],
+        alias: {
+            container: path.resolve(__dirname, '../../app/web/container/'),
+            template: path.resolve(__dirname, '../../app/web/template/react-toolbox/'),
+            action: path.resolve(__dirname, '../../app/actions/'),
+            asset: path.resolve(__dirname, '../../assets/'),
+            constant: path.resolve(__dirname, '../../app/constants/'),
+        }
     },
     module: {
         rules: [

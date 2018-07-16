@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk        from 'redux-thunk';
 import StockApp     from '../reducers/index';
 import { createLogger } from 'redux-logger'
-import DevTools     from '../web/containers/DevTools';
+import DevTools     from 'container/DevTools';
 
 // create a store that has redux-thunk middleware, and dev tooling enabled.
 // the logger middleware logs the previous state, the action, and the next

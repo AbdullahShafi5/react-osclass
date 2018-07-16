@@ -2,15 +2,11 @@ import React, { Component } from 'react'
 import { connect  } from 'react-redux'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { Form, Field, reduxForm, formValueSelector } from 'redux-form'
-
-import DropDown from "./../form/Dropdown"
-import Checkbox from "./../form/Checkbox"
 import Button from 'react-toolbox/lib/button'
 
-import { loadRegions, loadCities } from './../../../../../actions/LocationActions'
-import { loadPropertyTypes, loadPropertyAttributes } from './../../../../../actions/realstate/RealStateProperties'
-import { toggleMoreRealStateFilters } from './../../../../../actions/realstate/RealStateMoreFiltersActions'
-
+// COMPONENTS
+import DropDown from "./../../component/form/Dropdown"
+import Checkbox from "./..../component/form/Checkbox"
 import field from './../../../../../constants/FieldNames';
 
 const FORM = 'filter-box';
@@ -38,25 +34,7 @@ class FilterBox extends Component {
 
     componentWillUpdate(nextProps) {
 
-        const {region, city, real_state, getValue} = nextProps;
-
-        if (!region.processing && !region.results.length) {
-            this.props.dispatch(loadRegions());
-        }
-
-        let regionId = getValue(field.REGION.name);
-
-        if (!city.processing && regionId && regionId !== city.regionId) {
-            this.props.dispatch(loadCities(regionId));
-        }
-
-        if (!real_state.property_type.processing && !Object.keys(real_state.property_type.options).length) {
-            this.props.dispatch(loadPropertyTypes());
-        }
-
-        if (!real_state.property_attribute.processing && !Object.keys(real_state.property_attribute.options).length) {
-            this.props.dispatch(loadPropertyAttributes());
-        }
+        
     }
 
     toggleMoreFilters() {

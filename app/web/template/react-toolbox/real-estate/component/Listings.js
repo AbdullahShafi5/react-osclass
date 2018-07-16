@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import ListResults from './real_state/ListResults';
-import CardResults from './real_state/CardResults';
+import ListItem from './listing/ListItem';
+import CardItem from './listing/CardItem';
 import ResultsControlBar from './ResultsControlBar';
 
 import {
@@ -24,25 +24,17 @@ import { loadLatestListings } from '../../../../actions/LatestListings';
     }
 )
 
-export default class ResultsSection extends Component {
-
-    componentDidMount() {
-        const { latest_listings } = this.props;
-
-        if (!latest_listings.processing && !latest_listings.items.length) {
-            this.props.dispatch(loadLatestListings());
-        }
-    }
+export default class Listings extends Component {
 
     render() {
-        const { layout } = this.props;
+        const { layout, latest_listings } = this.props;
 
-        let list;
+        let Item;
 
         if (layout.results_list_style === RESULTS_LAYOUT_STYLE_CARD) {
-            list = <CardResults />;
+            Item = <ListItem />;
         } else if(layout.results_list_style === RESULTS_LAYOUT_STYLE_LIST) {
-            list = <ListResults />;
+            Item = <CardItem />;
         }
 
         return (
@@ -51,8 +43,12 @@ export default class ResultsSection extends Component {
                   <Grid class='grid'>
                       <Row>
                           <Col lg={9}>
-                              {list}
-                          </Col>
+                            <Row className='grid-results card-results'>
+                              {latest_listings.map((item, index) => {
+                                <Item data={item} />
+                              })}
+                            </Row>
+                        </Col>
                           <Col lg={3}>
 
                           </Col>

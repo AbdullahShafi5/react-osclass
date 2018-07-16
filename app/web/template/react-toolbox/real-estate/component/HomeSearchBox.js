@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Field, reduxForm } from 'redux-form';
 
-import Input from './../form/Input';
+import Input from './../../component/form/Input';
 import Button from 'react-toolbox/lib/button';
 import DropDown from 'react-toolbox/lib/dropdown'
 
